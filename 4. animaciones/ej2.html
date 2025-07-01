@@ -1,0 +1,18 @@
+<style>
+@keyframes pulse {
+  0% { transform: scale(1); }
+  25% { transform: skew(20deg, 10deg);}
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.circulo {
+  width: 100px;
+  height: 100px;
+  background: crimson;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+</style>
+
+<div class="circulo"></div>

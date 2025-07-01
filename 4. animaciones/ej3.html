@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo de Spinning</title>
+<style>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.rueda {
+  width: 80px;
+  height: 80px;
+  border: 5px solid blue;
+  border-top: 5px solid red;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+</style>
+</head>
+<body>
+<div class="rueda"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de transform: scale()</title>
+    <style>
+        .caja {
+            width: 100px;
+            height: 100px;
+            background: #E91E63;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px;
+            transition: transform 0.3s;
+        }
+
+        .caja:hover {
+            transform: scale(1.3); /*  130%  */ 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="caja">¡Hazme grande!</div>
+    <p>Pasa el mouse sobre el cuadro para ver el efecto de <b>scale</b>.</p>
+</body>
+
+</html>

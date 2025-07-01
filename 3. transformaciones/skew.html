@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de transform: skew()</title>
+    <style>
+        .caja {
+            width: 120px;
+            height: 80px;
+            background: #9C27B0;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px;
+            transition: transform 0.3s;
+        }
+
+        .caja:hover {
+            transform: skew(20deg, 10deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="caja">¡Inclíname!</div>
+    <p>Pasa el mouse sobre el cuadro para ver el efecto de <b>skew</b>.</p>
+</body>
+
+</html>

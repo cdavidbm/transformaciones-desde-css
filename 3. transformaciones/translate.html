@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo de transform: translate()</title>
+    <style>
+        .caja {
+            width: 100px;
+            height: 100px;
+            background: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px;
+            transition: transform 3s;
+        }
+
+        .caja:hover {
+            transform: translate(50px, 20px);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="caja">¡Muéveme!</div>
+    <p>Pasa el mouse sobre el cuadro para ver el efecto de <b>translate</b>.</p>
+</body>
+
+</html>
