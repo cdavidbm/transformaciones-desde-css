@@ -1,20 +1,33 @@
 <style>
-
   .caja {
-  width: 100px;
-  height: 100px;
-  background: orange;
-  animation: slide 2s infinite alternate;
+    width: 100px;
+    height: 100px;
+    background: orange;
+    animation: slide 2s infinite alternate;
+    position: relative;
   }
 
-@keyframes slide {
-  50% { transform: skew(20deg, 10deg)}
-  100% { 
-    transform: translateX(200px);
+  .caja::before {
+    content: "";
+    display: block;
+    animation: slideContent 2s infinite alternate;
   }
-}
 
+  @keyframes slide {
+    50% {
+      transform: skew(20deg, 10deg);
+    }
 
+    100% {
+      transform: translateX(200px);
+    }
+  }
+
+  @keyframes slideContent {
+    50% {
+      content: "❤️";
+    }
+  }
 </style>
 
 <div class="caja"></div>
