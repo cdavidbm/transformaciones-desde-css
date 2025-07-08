@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Unidades Absolutas en CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .box {
+            border: 2px solid #333;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .px-box {
+            width: 200px;
+            height: 100px;
+            background-color: #ffcccb;
+        }
+
+        .pt-box {
+            width: 150pt;
+            height: 75pt;
+            background-color: #add8e6;
+        }
+
+        .in-box {
+            width: 2in;
+            height: 1in;
+            background-color: #90ee90;
+        }
+
+        .cm-box {
+            width: 5cm;
+            height: 3cm;
+            background-color: #ffd700;
+        }
+
+        .mm-box {
+            width: 50mm;
+            height: 30mm;
+            background-color: #dda0dd;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .description {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Unidades Absolutas en CSS</h1>
+
+    <div class="description">
+        <p><strong>Las unidades absolutas</strong> tienen un tamaño fijo independientemente del dispositivo o contexto.
+            Son útiles para elementos que necesitan dimensiones específicas.</p>
+    </div>
+
+    <div class="container">
+        <div class="box px-box">
+            <h3>Píxeles (px)</h3>
+            <p>200px × 100px</p>
+            <small>Unidad más común para pantallas</small>
+        </div>
+
+        <div class="box pt-box">
+            <h3>Puntos (pt)</h3>
+            <p>150pt × 75pt</p>
+            <small>Usado principalmente en impresión</small>
+        </div>
+
+        <div class="box in-box">
+            <h3>Pulgadas (in)</h3>
+            <p>2in × 1in</p>
+            <small>1 pulgada = 96px</small>
+        </div>
+
+        <div class="box cm-box">
+            <h3>Centímetros (cm)</h3>
+            <p>5cm × 3cm</p>
+            <small>1cm = 37.8px</small>
+        </div>
+
+        <div class="box mm-box">
+            <h3>Milímetros (mm)</h3>
+            <p>50mm × 30mm</p>
+            <small>1mm = 3.78px</small>
+        </div>
+    </div>
+</body>
+
+</html>

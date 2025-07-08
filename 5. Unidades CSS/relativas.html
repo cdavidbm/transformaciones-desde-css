@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Unidades Relativas en CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            font-size: 16px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .box {
+            border: 2px solid #333;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .em-container {
+            font-size: 20px;
+            background-color: #e6f3ff;
+            padding: 15px;
+            border: 2px dashed #0066cc;
+        }
+
+        .em-box {
+            width: 10em;
+            height: 5em;
+            background-color: #ffcccb;
+            font-size: 1.2em;
+        }
+
+        .rem-box {
+            width: 15rem;
+            height: 8rem;
+            background-color: #add8e6;
+            font-size: 1.5rem;
+        }
+
+        .percent-container {
+            width: 300px;
+            height: 200px;
+            background-color: #f0f0f0;
+            border: 2px solid #666;
+            position: relative;
+        }
+
+        .percent-box {
+            width: 80%;
+            height: 60%;
+            background-color: #90ee90;
+            position: absolute;
+            top: 20%;
+            left: 10%;
+        }
+
+        .viewport-box {
+            width: 50vw;
+            height: 30vh;
+            background-color: #ffd700;
+            margin: 10px 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .description {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Unidades Relativas en CSS</h1>
+
+    <div class="description">
+        <p><strong>Las unidades relativas</strong> se adaptan según el contexto (tamaño de fuente, elemento padre,
+            viewport). Son ideales para diseños responsivos.</p>
+    </div>
+
+    <div class="em-container">
+        <h3>Contenedor padre (font-size: 20px)</h3>
+        <div class="box em-box">
+            <h3>Unidad em</h3>
+            <p>10em × 5em</p>
+            <small>Relativo al font-size del elemento padre</small>
+        </div>
+    </div>
+
+    <div class="box rem-box">
+        <h3>Unidad rem</h3>
+        <p>15rem × 8rem</p>
+        <small>Relativo al font-size del elemento raíz (html)</small>
+    </div>
+
+    <div class="percent-container">
+        <h4>Contenedor padre (300px × 200px)</h4>
+        <div class="percent-box">
+            <h3>Porcentaje (%)</h3>
+            <p>80% × 60%</p>
+            <small>Relativo al elemento padre</small>
+        </div>
+    </div>
+
+    <div class="box viewport-box">
+        <h3>Unidades de Viewport</h3>
+        <p>50vw × 30vh</p>
+        <small>vw = viewport width, vh = viewport height</small>
+    </div>
+
+    <div class="description">
+        <p><strong>Consejos:</strong></p>
+        <ul>
+            <li><strong>em:</strong> Hereda del elemento padre, útil para componentes escalables</li>
+            <li><strong>rem:</strong> Consistente en toda la página, mejor para tipografía</li>
+            <li><strong>%:</strong> Perfecto para layouts fluidos y responsivos</li>
+            <li><strong>vh/vw:</strong> Ideales para elementos que ocupan porcentajes de la pantalla</li>
+        </ul>
+    </div>
+</body>
+
+</html>

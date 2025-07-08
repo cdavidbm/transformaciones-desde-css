@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Unidades de Viewport en CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            font-size: 2.5vmin;
+        }
+
+        .header {
+            background-color: #2196F3;
+            color: white;
+            padding: 2vh 4vw;
+            text-align: center;
+            height: 12vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-size: 4vmin;
+            margin: 0;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
+            gap: 2vw;
+            padding: 2vh 2vw;
+            min-height: 76vh;
+        }
+
+        .vw-section {
+            background-color: #ffcccb;
+            padding: 3vmin;
+            border-radius: 1vmin;
+        }
+
+        .vw-box {
+            width: 10vw;
+            height: 8vh;
+            background-color: #ff6b6b;
+            margin: 1vh 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 0.5vmin;
+        }
+
+        .vh-section {
+            background-color: #add8e6;
+            padding: 3vmin;
+            border-radius: 1vmin;
+        }
+
+        .vh-box {
+            width: 25vw;
+            height: 25vh;
+            background-color: #4dabf7;
+            margin: 1vh 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 0.5vmin;
+        }
+
+        .vmin-section {
+            background-color: #d4edda;
+            padding: 3vmin;
+            border-radius: 1vmin;
+        }
+
+        .vmin-box {
+            width: 30vmin;
+            height: 30vmin;
+            background-color: #28a745;
+            margin: 1vh 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 0.5vmin;
+        }
+
+        .vmax-section {
+            background-color: #fff3cd;
+            padding: 3vmin;
+            border-radius: 1vmin;
+        }
+
+        .vmax-box {
+            width: 25vmax;
+            height: 6vh;
+            background-color: #ffc107;
+            margin: 1vh 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #212529;
+            font-weight: bold;
+            border-radius: 0.5vmin;
+        }
+
+        .combined-section {
+            background-color: #e1d5e7;
+            padding: 3vmin;
+            border-radius: 1vmin;
+            grid-column: span 2;
+        }
+
+        .combined-box {
+            width: 40vw;
+            height: 20vh;
+            background: linear-gradient(45deg, #9c27b0, #673ab7);
+            margin: 1vh auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 1vmin;
+            font-size: 3vmin;
+        }
+
+        .responsive-text {
+            font-size: 4vmin;
+            text-align: center;
+            padding: 2vh;
+            background-color: #f8f9fa;
+            border-radius: 1vmin;
+            margin: 1vh 0;
+        }
+
+        .footer {
+            background-color: #6c757d;
+            color: white;
+            padding: 2vh 4vw;
+            text-align: center;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-box {
+            background-color: #e9ecef;
+            padding: 2vmin;
+            border-radius: 0.5vmin;
+            margin: 1vh 0;
+            border-left: 0.5vmin solid #007bff;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 2vmin;
+            font-size: 3.5vmin;
+        }
+
+        .size-indicator {
+            position: fixed;
+            top: 2vh;
+            right: 2vw;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1vmin 2vmin;
+            border-radius: 0.5vmin;
+            font-size: 2vmin;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .combined-section {
+                grid-column: span 1;
+            }
+
+            .vw-box {
+                width: 90vw;
+            }
+
+            .vh-box {
+                width: 80vw;
+                height: 20vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="size-indicator">
+        <span id="viewport-size">Viewport: <span id="dimensions"></span></span>
+    </div>
+
+    <div class="header">
+        <h1>Unidades de Viewport - Header (12vh)</h1>
+    </div>
+
+    <div class="main-content">
+        <div class="vw-section">
+            <h2>Viewport Width (vw)</h2>
+            <div class="info-box">
+                <p><strong>vw:</strong> 1vw = 1% del ancho de la pantalla</p>
+            </div>
+            <div class="vw-box">10vw de ancho</div>
+            <p>Este elemento siempre ocupará el 10% del ancho de la pantalla, sin importar el tamaño del dispositivo.
+            </p>
+        </div>
+
+        <div class="vh-section">
+            <h2>Viewport Height (vh)</h2>
+            <div class="info-box">
+                <p><strong>vh:</strong> 1vh = 1% de la altura de la pantalla</p>
+            </div>
+            <div class="vh-box">25vh de alto</div>
+            <p>Este elemento siempre ocupará el 25% de la altura de la pantalla.</p>
+        </div>
+
+        <div class="vmin-section">
+            <h2>Viewport Minimum (vmin)</h2>
+            <div class="info-box">
+                <p><strong>vmin:</strong> 1vmin = 1% de la dimensión más pequeña (ancho o alto)</p>
+            </div>
+            <div class="vmin-box">30vmin × 30vmin</div>
+            <p>Siempre será un cuadrado basado en la dimensión más pequeña de la pantalla.</p>
+        </div>
+
+        <div class="vmax-section">
+            <h2>Viewport Maximum (vmax)</h2>
+            <div class="info-box">
+                <p><strong>vmax:</strong> 1vmax = 1% de la dimensión más grande (ancho o alto)</p>
+            </div>
+            <div class="vmax-box">25vmax de ancho</div>
+            <p>Se basa en la dimensión más grande de la pantalla.</p>
+        </div>
+
+        <div class="combined-section">
+            <h2>Combinando Unidades Viewport</h2>
+            <div class="info-box">
+                <p><strong>Ejemplo práctico:</strong> Usando múltiples unidades viewport para crear diseños totalmente
+                    responsivos
+                </p>
+            </div>
+            <div class="combined-box">
+                40vw × 20vh
+            </div>
+            <div class="responsive-text">
+                Texto responsivo con 4vmin - se adapta automáticamente al tamaño del viewport
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Footer (10vh) - Redimensiona la ventana para ver los cambios en tiempo real</p>
+    </div>
+
+    <script>
+        function updateViewportSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            document.getElementById('dimensions').textContent = `${width}px × ${height}px`;
+        }
+
+        window.addEventListener('resize', updateViewportSize);
+        updateViewportSize();
+    </script>
+</body>
+
+</html>
