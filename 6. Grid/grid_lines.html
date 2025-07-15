@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Posicionamiento con Líneas de Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 10px;
+            background-color: #e74c3c;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        .item1 {
+            /* El item comienza en la línea 1 y termina en la 3 (ocupa 2 columnas) */
+            grid-column-start: 1;
+            grid-column-end: 3;
+            background-color: #f1c40f;
+        }
+
+        .item4 {
+            /* Ocupa desde la línea de columna 2 hasta la 4 */
+            grid-column: 2 / 4;
+            /* Ocupa desde la línea de fila 2 hasta la 4 */
+            grid-row: 2 / 4;
+            background-color: #9b59b6;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Posicionamiento con Líneas de Grid</h1>
+    <p>Podemos ubicar elementos en celdas específicas o hacer que ocupen varias celdas usando las líneas del grid.</p>
+
+    <div class="grid-container">
+        <div class="grid-item item1">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item item4">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+    </div>
+</body>
+
+</html>

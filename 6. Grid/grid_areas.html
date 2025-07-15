@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Layout con Grid Areas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header header header header'
+                'menu main main main right right'
+                'menu footer footer footer footer footer';
+            gap: 10px;
+            background-color: #2c3e50;
+            padding: 10px;
+            height: 100vh;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+        #header {
+            grid-area: header;
+            background-color: #1abc9c;
+        }
+
+        #menu {
+            grid-area: menu;
+            background-color: #3498db;
+        }
+
+        #main {
+            grid-area: main;
+            background-color: #95a5a6;
+        }
+
+        #right {
+            grid-area: right;
+            background-color: #f1c40f;
+        }
+
+        #footer {
+            grid-area: footer;
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div id="header" class="grid-item">Header</div>
+        <div id="menu" class="grid-item">Menu</div>
+        <div id="main" class="grid-item">Main</div>
+        <div id="right" class="grid-item">Right</div>
+        <div id="footer" class="grid-item">Footer</div>
+    </div>
+
+</body>
+
+</html>
