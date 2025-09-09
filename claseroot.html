@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casillas de verificación</title>
+    <style>
+        :root {
+            --color1: yellow;
+            --color2: darkblue;
+            --textColor1: black;
+            --textColor2: white;
+        }
+
+        #check:checked~* {
+            --color1: green;
+            --color2: cyan;
+            --textColor1: red;
+            --textColor2: blue;
+        }
+
+        body {
+            margin: 0;
+            text-align: center;
+            font-size: 8vh;
+        }
+
+        header,
+        footer {
+            height: 10vh;
+            background-color: var(--color1);
+            color: var(--textColor1);
+        }
+
+        main {
+            height: 80vh;
+            background-color: var(--color2);
+            color: var(--textColor2);
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">Presiona aqui para cambiar los colores de la pagina</label>
+    <header>Header</header>
+    <main>Main</main>
+    <footer>Footer</footer>
+</body>
+
+</html>

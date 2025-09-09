@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario que Cambia Estilos - Solo CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        .texto-ejemplo {
+            margin-top: 30px;
+            padding: 20px;
+            border: 3px dashed #ccc;
+            text-align: center;
+            font-size: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            color: red;
+        }
+
+        /* Cambios de color según radio buttons */
+        input[name="color"]:checked {
+            accent-color: var(--selected-color);
+        }
+
+        #color-rojo:checked~* .texto-ejemplo,
+        form:has(#color-rojo:checked) .texto-ejemplo {
+            color: red !important;
+        }
+
+        #color-azul:checked~* .texto-ejemplo,
+        form:has(#color-azul:checked) .texto-ejemplo {
+            color: blue !important;
+        }
+
+        #color-verde:checked~* .texto-ejemplo,
+        form:has(#color-verde:checked) .texto-ejemplo {
+            color: green !important;
+        }
+
+        #color-morado:checked~* .texto-ejemplo,
+        form:has(#color-morado:checked) .texto-ejemplo {
+            color: purple !important;
+        }
+
+        /* Cambios de tamaño según radio buttons */
+        #tamaño-pequeño:checked~* .texto-ejemplo,
+        form:has(#tamaño-pequeño:checked) .texto-ejemplo {
+            font-size: 16px !important;
+        }
+
+        #tamaño-mediano:checked~* .texto-ejemplo,
+        form:has(#tamaño-mediano:checked) .texto-ejemplo {
+            font-size: 24px !important;
+        }
+
+        #tamaño-grande:checked~* .texto-ejemplo,
+        form:has(#tamaño-grande:checked) .texto-ejemplo {
+            font-size: 32px !important;
+        }
+
+        /* Cambios de fondo según radio buttons */
+        #fondo-amarillo:checked~* .texto-ejemplo,
+        form:has(#fondo-amarillo:checked) .texto-ejemplo {
+            background-color: yellow !important;
+        }
+
+        #fondo-rosa:checked~* .texto-ejemplo,
+        form:has(#fondo-rosa:checked) .texto-ejemplo {
+            background-color: pink !important;
+        }
+
+        #fondo-celeste:checked~* .texto-ejemplo,
+        form:has(#fondo-celeste:checked) .texto-ejemplo {
+            background-color: lightblue !important;
+        }
+
+        /* Efectos con checkbox */
+        #negrita:checked~* .texto-ejemplo,
+        form:has(#negrita:checked) .texto-ejemplo {
+            font-weight: bold !important;
+        }
+
+        #cursiva:checked~* .texto-ejemplo,
+        form:has(#cursiva:checked) .texto-ejemplo {
+            font-style: italic !important;
+        }
+
+        #subrayado:checked~* .texto-ejemplo,
+        form:has(#subrayado:checked) .texto-ejemplo {
+            text-decoration: underline !important;
+        }
+
+        #sombra:checked~* .texto-ejemplo,
+        form:has(#sombra:checked) .texto-ejemplo {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .opciones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .opcion {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎨 Cambia los Estilos - Solo con CSS</h1>
+
+        <form>
+            <div class="form-group">
+                <label>Elige un color para el texto:</label>
+                <div class="opciones">
+                    <div class="opcion">
+                        <input type="radio" id="color-rojo" name="color" checked>
+                        <label for="color-rojo">🔴 Rojo</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="color-azul" name="color">
+                        <label for="color-azul">🔵 Azul</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="color-verde" name="color">
+                        <label for="color-verde">🟢 Verde</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="color-morado" name="color">
+                        <label for="color-morado">🟣 Morado</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Elige el tamaño del texto:</label>
+                <div class="opciones">
+                    <div class="opcion">
+                        <input type="radio" id="tamaño-pequeño" name="tamaño">
+                        <label for="tamaño-pequeño">📝 Pequeño</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="tamaño-mediano" name="tamaño" checked>
+                        <label for="tamaño-mediano">📄 Mediano</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="tamaño-grande" name="tamaño">
+                        <label for="tamaño-grande">📰 Grande</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Elige el color de fondo:</label>
+                <div class="opciones">
+                    <div class="opcion">
+                        <input type="radio" id="fondo-blanco" name="fondo" checked>
+                        <label for="fondo-blanco">⚪ Blanco</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="fondo-amarillo" name="fondo">
+                        <label for="fondo-amarillo">🟡 Amarillo</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="fondo-rosa" name="fondo">
+                        <label for="fondo-rosa">🌸 Rosa</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="fondo-celeste" name="fondo">
+                        <label for="fondo-celeste">💙 Celeste</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Efectos especiales (puedes elegir varios):</label>
+                <div class="opciones">
+                    <div class="opcion">
+                        <input type="checkbox" id="negrita">
+                        <label for="negrita">💪 Negrita</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="checkbox" id="cursiva">
+                        <label for="cursiva">📜 Cursiva</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="checkbox" id="subrayado">
+                        <label for="subrayado">📏 Subrayado</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="checkbox" id="sombra">
+                        <label for="sombra">👤 Sombra</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="texto-ejemplo">
+                ¡Hola! Soy un texto que cambia con tus selecciones
+            </div>
+        </form>
+
+        <p style="text-align: center; color: #666; margin-top: 20px;">
+            ✨ Selecciona diferentes opciones para ver cómo cambia el texto ✨
+        </p>
+    </div>
+</body>
+
+</html>
