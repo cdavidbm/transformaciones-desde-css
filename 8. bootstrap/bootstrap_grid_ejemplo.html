@@ -139,6 +139,54 @@
 &lt;/div&gt;</code></pre>
         </section>
 
+        <!-- Ejemplo 4: Puntos de Ruptura (Breakpoints) -->
+        <section class="mb-5 p-4 border rounded">
+            <h3 class="mb-3">4. Puntos de Ruptura (Breakpoints)</h3>
+            <p>Bootstrap es "mobile-first", lo que significa que los estilos base están pensados para dispositivos pequeños. Luego, se añaden clases para adaptar el diseño a pantallas más grandes. Estos son los "breakpoints" o puntos de ruptura que usa Bootstrap:</p>
+            <table class="table table-bordered text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th>Prefijo de Clase</th>
+                        <th>Dimensión</th>
+                        <th>Uso Típico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>.col-</code></td>
+                        <td>&lt;576px</td>
+                        <td>Móviles en vertical (Extra small)</td>
+                    </tr>
+                    <tr>
+                        <td><code>.col-sm-</code></td>
+                        <td>≥576px</td>
+                        <td>Móviles en horizontal (Small)</td>
+                    </tr>
+                    <tr>
+                        <td><code>.col-md-</code></td>
+                        <td>≥768px</td>
+                        <td>Tablets (Medium)</td>
+                    </tr>
+                    <tr>
+                        <td><code>.col-lg-</code></td>
+                        <td>≥992px</td>
+                        <td>Portátiles / Escritorios pequeños (Large)</td>
+                    </tr>
+                    <tr>
+                        <td><code>.col-xl-</code></td>
+                        <td>≥1200px</td>
+                        <td>Escritorios grandes (Extra large)</td>
+                    </tr>
+                    <tr>
+                        <td><code>.col-xxl-</code></td>
+                        <td>≥1400px</td>
+                        <td>Escritorios muy grandes (Extra extra large)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="mt-3"><strong>Ejemplo de uso:</strong> Una clase como <code>.col-lg-4</code> se aplicará a dispositivos con un ancho de 992px o más. En pantallas más pequeñas, la columna ocupará el 100% del ancho a menos que se especifique una clase para un breakpoint inferior (como <code>.col-md-6</code>).</p>
+        </section>
+
     </div>
 
     <!-- Enlace al JS de Bootstrap (Bundle) para componentes interactivos (aunque no se usa en este ejemplo, es buena práctica incluirlo) -->
