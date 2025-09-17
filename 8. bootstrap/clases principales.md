@@ -1,8 +1,5 @@
 *** Guía Rápida de Clases de Bootstrap Usadas ***
 
-    Aquí tienes una referencia de las clases que se usaron para mejorar el diseño.
-    Bootstrap usa nombres de clases muy descriptivos que son fáciles de recordar.
-
     --- ESTRUCTURA Y LAYOUT ---
     .container: Centra el contenido y le da un ancho máximo para que no ocupe toda la pantalla en monitores grandes.
     .row: Crea una fila horizontal para organizar las columnas dentro de ella.
