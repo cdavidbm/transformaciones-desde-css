@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JS</title>
+</head>
+<body>
+    <h1>Saludar al usuario</h1>
+    <button onclick="saludar()">Saludar</button>
+    <h2 id="saludo"></h2>
+    <script>
+        function saludar() {
+            var nombre = prompt("¿Cómo te llamas?");
+            var saludo = document.getElementById('saludo');
+            if (nombre) {
+                saludo.innerText = "Hola, " + nombre + "!";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JS</title>
+</head>
+<body>
+    <h1>Calculadora Simple</h1>
+    <button onclick="sumar()">Sumar dos números</button>
+    <h2 id="resultado"></h2>
+    <script>
+        function sumar() {
+            var num1 = prompt("Ingresa el primer número:");
+            var num2 = prompt("Ingresa el segundo número:");
+            var resultado = document.getElementById('resultado');
+            
+            num1 = parseFloat(num1);
+            num2 = parseFloat(num2);
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                resultado.innerText = "El resultado es: " + (num1 + num2);
+            } else {
+                resultado.innerText = "Por favor, ingresa números válidos.";
+            }
+        }
+    </script>
+</body>
+</html>

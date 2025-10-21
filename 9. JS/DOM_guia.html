@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Manipulación del DOM</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1, h2 {
+            color: #005A9C;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        pre {
+            background: #f0f0f0;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .ejemplo {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guía para Seleccionar Elementos del DOM</h1>
+        <p>Aprende a seleccionar y manipular los elementos más comunes de una página web usando JavaScript.</p>
+
+        <div class="ejemplo">
+            <h2>Elementos de Ejemplo</h2>
+            <p id="parrafo-id">Este es un párrafo con un ID.</p>
+            <p class="parrafo-clase">Este es el primer párrafo con una clase.</p>
+            <p class="parrafo-clase">Este es el segundo párrafo con una clase.</p>
+            <span>Este es un span.</span>
+            <div>
+                <p>Párrafo anidado dentro de un div.</p>
+            </div>
+        </div>
+
+        <h2>1. Seleccionar por ID: <code>getElementById()</code></h2>
+        <p>Es el método más rápido para encontrar un elemento, ya que los IDs deben ser únicos en el documento.</p>
+        <pre><code>// Selecciona el elemento con el id "parrafo-id"
+const porId = document.getElementById('parrafo-id');
+console.log(porId.textContent); // Muestra el texto del párrafo</code></pre>
+
+        <h2>2. Seleccionar por Nombre de Etiqueta: <code>getElementsByTagName()</code></h2>
+        <p>Devuelve una colección (HTMLCollection) de todos los elementos que coinciden con el nombre de la etiqueta especificada.</p>
+        <pre><code>// Selecciona todos los elementos <p>
+const porEtiqueta = document.getElementsByTagName('p');
+console.log(porEtiqueta.length); // Muestra el número de párrafos encontrados
+// Para acceder a uno, usamos su índice
+console.log(porEtiqueta[0].textContent);</code></pre>
+
+        <h2>3. Seleccionar por Clase: <code>getElementsByClassName()</code></h2>
+        <p>Devuelve una colección (HTMLCollection) de todos los elementos que tienen la clase especificada.</p>
+        <pre><code>// Selecciona todos los elementos con la clase "parrafo-clase"
+const porClase = document.getElementsByClassName('parrafo-clase');
+console.log(porClase.length); // Muestra el número de elementos con esa clase
+// También se accede por índice
+console.log(porClase[1].textContent);</code></pre>
+
+        <h2>4. Seleccionar con Selectores CSS: <code>querySelector()</code></h2>
+        <p>Es muy versátil. Devuelve el <strong>primer</strong> elemento que coincide con el selector CSS especificado. Puedes usar cualquier selector CSS (id, clase, etiqueta, atributos, etc.).</p>
+        <pre><code>// Seleccionar el primer párrafo con la clase "parrafo-clase"
+const queryClase = document.querySelector('.parrafo-clase');
+console.log(queryClase.textContent);
+
+// Seleccionar el párrafo anidado en un div
+const queryAnidado = document.querySelector('div p');
+console.log(queryAnidado.textContent);</code></pre>
+
+        <h2>5. Seleccionar Múltiples Elementos: <code>querySelectorAll()</code></h2>
+        <p>Devuelve una lista estática (NodeList) de <strong>todos</strong> los elementos que coinciden con el grupo de selectores CSS especificados.</p>
+        <pre><code>// Selecciona TODOS los párrafos con la clase "parrafo-clase"
+const queryTodos = document.querySelectorAll('.parrafo-clase');
+console.log(queryTodos.length); // Muestra 2
+
+// Podemos iterar sobre la lista de nodos con forEach
+queryTodos.forEach(parrafo => {
+    parrafo.style.color = 'blue'; // Cambia el color del texto a azul
+});</code></pre>
+    </div>
+
+    <script>
+        // Puedes abrir la consola de tu navegador (F12) para ver los resultados de los console.log
+
+        // 1. getElementById
+        const porId = document.getElementById('parrafo-id');
+        console.log('getElementById:', porId);
+
+        // 2. getElementsByTagName
+        const porEtiqueta = document.getElementsByTagName('p');
+        console.log('getElementsByTagName:', porEtiqueta);
+
+        // 3. getElementsByClassName
+        const porClase = document.getElementsByClassName('parrafo-clase');
+        console.log('getElementsByClassName:', porClase);
+
+        // 4. querySelector
+        const queryClase = document.querySelector('.parrafo-clase');
+        console.log('querySelector (.parrafo-clase):', queryClase);
+
+        const queryAnidado = document.querySelector('div p');
+        console.log('querySelector (div p):', queryAnidado);
+
+        // 5. querySelectorAll
+        const queryTodos = document.querySelectorAll('.parrafo-clase');
+        console.log('querySelectorAll:', queryTodos);
+
+        queryTodos.forEach((parrafo, index) => {
+            parrafo.style.fontWeight = 'bold';
+            console.log(`Elemento ${index} de querySelectorAll:`, parrafo);
+        });
+    </script>
+</body>
+</html>

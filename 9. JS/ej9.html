@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JS</title>
+</head>
+<body>
+    <h1>Cambiar tamaño de imagen</h1>
+    <img id="imagen" src="https://via.placeholder.com/150" alt="Placeholder" width="150">
+    <br>
+    <button onclick="aumentar()">Aumentar</button>
+    <button onclick="disminuir()">Disminuir</button>
+    <script>
+        function aumentar() {
+            var imagen = document.getElementById('imagen');
+            var width = imagen.clientWidth;
+            imagen.style.width = (width + 20) + "px";
+        }
+        function disminuir() {
+            var imagen = document.getElementById('imagen');
+            var width = imagen.clientWidth;
+            imagen.style.width = (width - 20) + "px";
+        }
+    </script>
+</body>
+</html>

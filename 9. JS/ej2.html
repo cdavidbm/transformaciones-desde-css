@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JS</title>
+</head>
+<body>
+    <h1 id="titular">Este texto va a Cambiar</h1>
+    <div onclick="cambiar()">presiona aquí para cambiar</div>
+    <script>
+        function cambiar() {
+            var titular = document.getElementById('titular');
+            titular.style.color = "red";
+            titular.style.textAlign = "center";
+        }
+    </script>
+</body>
+</html>
