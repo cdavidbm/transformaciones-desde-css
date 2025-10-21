@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción al DOM con JavaScript</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f0f0f0; color: #333; line-height: 1.6; margin: 2em; }
+        .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #0056b3; }
+        /* Estilo para código en línea (dentro de un párrafo) */
+        code { background-color: #e9ecef; color: #c7254e; padding: 3px 6px; border-radius: 4px; font-family: monospace; }
+        /* Estilo para bloques de código completos */
+        pre { background-color: #f8f9fa; color: #212529; padding: 15px; border-radius: 5px; border: 1px solid #dee2e6; white-space: pre-wrap; word-wrap: break-word; }
+        pre code { background-color: transparent; color: inherit; padding: 0; }
+        button { display: inline-block; margin: 10px 0; padding: 10px 15px; border: none; background-color: #007bff; color: white; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        hr { margin: 40px 0; border: 1px solid #ddd; }
+        #lista-dinamica li { background-color: #e7f3ff; margin-bottom: 5px; padding: 8px; border-left: 4px solid #007bff; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 10px; }
+        #caja-toggle { width: 100%; padding: 20px; border: 2px solid #ccc; transition: all 0.3s ease; text-align: center; box-sizing: border-box;}
+        .resaltado { background-color: #fff3cd; border-color: #ffeeba; color: #856404; font-weight: bold; }
+        input[type='text'] { padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Introducción al DOM con JavaScript</h1>
+        <p>El <strong>DOM (Document Object Model)</strong> es una representación del documento HTML que nos permite interactuar con él desde JavaScript. Podemos leer, añadir, eliminar y modificar elementos y su contenido.</p>
+        
+        <hr>
+
+        <h2>Ejercicio 1: Seleccionar y Modificar Contenido</h2>
+        <p>JavaScript puede encontrar un elemento en tu página por su <code>id</code> único. Una vez que lo tiene, puede cambiar lo que dice adentro (con <code>.innerHTML</code>) o cómo se ve (con <code>.style</code>).</p>
+        <p><strong>Explicación del código:</strong></p>
+        <ul>
+            <li><code>document.getElementById('parrafo-intro')</code>: Busca en todo el documento HTML un elemento que tenga el <code>id="parrafo-intro"</code>.</li>
+            <li><code>parrafo.innerHTML = "..."</code>: Cambia el contenido HTML del párrafo. Le estamos diciendo que ponga un nuevo texto, incluyendo la etiqueta <code>&lt;strong&gt;</code> para negrita.</li>
+            <li><code>parrafo.style.color = "green"</code>: Cambia el color del texto del párrafo a verde.</li>
+        </ul>
+
+        <pre><code>// Seleccionar elemento
+const parrafo = document.getElementById('parrafo-intro');
+
+// Modificar contenido y estilo
+parrafo.innerHTML = "¡Modificado con <strong>JavaScript</strong>!";
+parrafo.style.color = "green";</code></pre>
+        <p id="parrafo-intro">Este párrafo será modificado por el script al cargar la página.</p>
+
+        <hr>
+
+        <h2>Ejercicio 2: Manejar Eventos de Usuario (Clics)</h2>
+        <p>JavaScript puede "escuchar" eventos que ocurren en la página, como un clic del ratón. Usamos <code>.addEventListener()</code> para decirle a un elemento (como un botón) qué función ejecutar cuando ocurra un evento específico.</p>
+        <p><strong>Explicación del código:</strong></p>
+        <ul>
+            <li><code>boton.addEventListener('click', function() { ... })</code>: Le estamos diciendo al botón que esté atento. Cuando un usuario haga 'click' en él, ejecutará el código que está dentro de <code>function() { ... }</code>.</li>
+            <li>Dentro de la función, seleccionamos otro párrafo y cambiamos su texto con <code>.textContent</code>.</li>
+        </ul>
+
+        <pre><code>const boton = document.getElementById('mi-boton');
+const texto = document.getElementById('texto-a-cambiar');
+
+boton.addEventListener('click', function() {
+    texto.textContent = "¡El texto ha cambiado gracias a tu clic!";
+});</code></pre>
+        <p id="texto-a-cambiar">Este es el texto original. Haz clic en el botón para cambiarlo.</p>
+        <button id="mi-boton">¡Haz Clic!</button>
+
+        <hr>
+
+        <h2>Ejercicio 3: Crear y Añadir Nuevos Elementos</h2>
+        <p>Imagina que tienes una caja de LEGO (la página) y quieres añadir un nuevo bloque. Con JavaScript, puedes crear un nuevo elemento HTML (un bloque) desde cero y luego decidir exactamente dónde ponerlo.</p>
+        <p><strong>Explicación del código:</strong></p>
+        <ul>
+            <li><code>document.createElement('li')</code>: Crea un nuevo elemento HTML, en este caso, una etiqueta <code>&lt;li&gt;</code> (un ítem de lista). En este punto, el elemento existe en la memoria de JavaScript, pero todavía no es visible en la página.</li>
+            <li><code>nuevoElemento.textContent = "Nuevo elemento"</code>: Le ponemos texto a nuestro nuevo <code>&lt;li&gt;</code>.</li>
+            <li><code>lista.appendChild(nuevoElemento)</code>: Tomamos el elemento <code>&lt;ul&gt;</code> que ya existía en la página (la lista) y le "añadimos como hijo" nuestro nuevo <code>&lt;li&gt;</code>. Esto hace que el nuevo elemento finalmente aparezca en la pantalla.</li>
+        </ul>
+
+        <pre><code>const lista = document.getElementById('lista-dinamica');
+const nuevoElemento = document.createElement('li');
+nuevoElemento.textContent = "Nuevo elemento";
+lista.appendChild(nuevoElemento);</code></pre>
+        <h3>Lista de Frutas:</h3>
+        <ul id="lista-dinamica">
+            <!-- JavaScript añadirá elementos aquí -->
+        </ul>
+
+        <hr>
+
+        <h2>Ejercicio 4: Cambiar Atributos (ej. una imagen)</h2>
+        <p>Podemos cambiar los atributos de un elemento, como el atributo <code>src</code> (fuente) de una imagen.</p>
+        <pre><code>const imagen = document.getElementById('imagen-ejemplo');
+imagen.src = 'URL_DE_NUEVA_IMAGEN';</code></pre>
+        <img id="imagen-ejemplo" src="https://placehold.co/600x200/007bff/white?text=Imagen+1" alt="Imagen de ejemplo">
+        <button id="boton-cambiar-imagen">Cambiar Imagen</button>
+
+        <hr>
+
+        <h2>Ejercicio 5: Alternar (Toggle) Clases de CSS</h2>
+        <p>Con <code>.classList.toggle()</code>, podemos añadir o quitar una clase de CSS a un elemento, permitiéndonos cambiar su apariencia de forma sencilla.</p>
+        <pre><code>const caja = document.getElementById('caja-toggle');
+caja.classList.toggle('resaltado');</code></pre>
+        <div id="caja-toggle">Haz clic en el botón para resaltar o quitar el resaltado de esta caja.</div>
+        <button id="boton-toggle-clase">Alternar Resaltado</button>
+
+        <hr>
+
+        <h2>Ejercicio 6: Leer la Entrada (Input) de un Usuario</h2>
+        <p>Podemos leer el valor de un campo de texto con <code>.value</code> y usarlo en nuestro script.</p>
+        <pre><code>const input = document.getElementById('input-usuario');
+const salida = document.getElementById('salida-input');
+salida.textContent = 'Hola, ' + input.value;</code></pre>
+        <input type="text" id="input-usuario" placeholder="Escribe tu nombre">
+        <button id="boton-mostrar-input">Saludar</button>
+        <p><strong>Saludo:</strong> <span id="salida-input">...</span></p>
+
+    </div>
+
+    <script>
+        // --- Ejercicio 1: Carga inicial ---
+        const parrafoIntro = document.getElementById('parrafo-intro');
+        parrafoIntro.innerHTML = "¡El contenido de este párrafo fue <strong>modificado</strong> por JavaScript!";
+        parrafoIntro.style.color = "green";
+        parrafoIntro.style.fontWeight = "bold";
+
+        // --- Ejercicio 2: Evento de Clic ---
+        const miBoton = document.getElementById('mi-boton');
+        const textoACambiar = document.getElementById('texto-a-cambiar');
+        miBoton.addEventListener('click', function() {
+            textoACambiar.textContent = "¡Magia! 🎩 El texto ha cambiado gracias a tu clic.";
+            miBoton.style.backgroundColor = "#28a745";
+            miBoton.textContent = "¡Hecho!";
+        });
+
+        // --- Ejercicio 3: Crear y Añadir Elementos ---
+        const listaDinamica = document.getElementById('lista-dinamica');
+        const frutas = ["Manzana 🍎", "Banana 🍌", "Naranja 🍊"];
+        frutas.forEach(function(fruta) {
+            const nuevoLi = document.createElement('li');
+            nuevoLi.textContent = fruta;
+            listaDinamica.appendChild(nuevoLi);
+        });
+
+        // --- Ejercicio 4: Cambiar Atributos ---
+        const imagenEjemplo = document.getElementById('imagen-ejemplo');
+        const botonCambiarImagen = document.getElementById('boton-cambiar-imagen');
+        const imagenOriginal = 'https://placehold.co/600x200/007bff/white?text=Imagen+1';
+        const nuevaImagen = 'https://placehold.co/600x200/28a745/white?text=Imagen+2';
+        botonCambiarImagen.addEventListener('click', function() {
+            if (imagenEjemplo.src === imagenOriginal) {
+                imagenEjemplo.src = nuevaImagen;
+            } else {
+                imagenEjemplo.src = imagenOriginal;
+            }
+        });
+
+        // --- Ejercicio 5: Alternar Clases CSS ---
+        const cajaToggle = document.getElementById('caja-toggle');
+        const botonToggleClase = document.getElementById('boton-toggle-clase');
+        botonToggleClase.addEventListener('click', function() {
+            cajaToggle.classList.toggle('resaltado');
+        });
+
+        // --- Ejercicio 6: Leer Input de Usuario ---
+        const inputUsuario = document.getElementById('input-usuario');
+        const botonMostrarInput = document.getElementById('boton-mostrar-input');
+        const salidaInput = document.getElementById('salida-input');
+        botonMostrarInput.addEventListener('click', function() {
+            const nombre = inputUsuario.value;
+            if (nombre.trim() === '') {
+                salidaInput.textContent = 'Por favor, escribe tu nombre.';
+            }
+            else {
+                salidaInput.textContent = `¡Hola, ${nombre}!`;
+            }
+        });
+    </script>
+
+</body>
+</html>
