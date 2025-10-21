@@ -28,6 +28,16 @@
     <div class="container">
         <h1>Introducción al DOM con JavaScript</h1>
         <p>El <strong>DOM (Document Object Model)</strong> es una representación del documento HTML que nos permite interactuar con él desde JavaScript. Podemos leer, añadir, eliminar y modificar elementos y su contenido.</p>
+
+        <hr>
+
+        <h2>¿Cómo Empezar con estos Ejercicios?</h2>
+        <p>¡La mejor forma de aprender es haciendo! Sigue estos pasos:</p>
+        <ol>
+            <li><strong>Abre las Herramientas de Desarrollador:</strong> En tu navegador, haz clic derecho en cualquier parte de la página y selecciona <strong>"Inspeccionar"</strong>. Se abrirá un panel. Busca la pestaña llamada <strong>"Consola"</strong>. Esta es tu ventana para ver errores y mensajes de JavaScript.</li>
+            <li><strong>Observa el Código:</strong> El código JavaScript que hace funcionar estos ejemplos está al final del archivo, dentro de las etiquetas <code>&lt;script&gt;</code>. ¡Échale un vistazo!</li>
+            <li><strong>¡Experimenta!</strong> No tengas miedo de cambiar el código. Intenta modificar los textos, los colores o incluso las acciones. Si algo se rompe, ¡no pasa nada! La consola te dará pistas sobre qué salió mal. Recarga la página para volver al estado original.</li>
+        </ol>
         
         <hr>
 
@@ -90,7 +100,12 @@ lista.appendChild(nuevoElemento);</code></pre>
         <hr>
 
         <h2>Ejercicio 4: Cambiar Atributos (ej. una imagen)</h2>
-        <p>Podemos cambiar los atributos de un elemento, como el atributo <code>src</code> (fuente) de una imagen.</p>
+        <p>Los atributos son las propiedades especiales que tienen las etiquetas HTML, como <code>src</code> en una imagen (que le dice dónde encontrar la foto) o <code>href</code> en un enlace (que le dice a dónde ir). JavaScript puede cambiar estos atributos dinámicamente.</p>
+        <p><strong>Explicación del código:</strong></p>
+        <ul>
+            <li><code>imagen.src = 'URL_DE_NUEVA_IMAGEN'</code>: Seleccionamos la imagen y cambiamos su atributo <code>src</code>. Al cambiar la URL, el navegador automáticamente carga y muestra la nueva imagen.</li>
+        </ul>
+
         <pre><code>const imagen = document.getElementById('imagen-ejemplo');
 imagen.src = 'URL_DE_NUEVA_IMAGEN';</code></pre>
         <img id="imagen-ejemplo" src="https://placehold.co/600x200/007bff/white?text=Imagen+1" alt="Imagen de ejemplo">
@@ -99,7 +114,12 @@ imagen.src = 'URL_DE_NUEVA_IMAGEN';</code></pre>
         <hr>
 
         <h2>Ejercicio 5: Alternar (Toggle) Clases de CSS</h2>
-        <p>Con <code>.classList.toggle()</code>, podemos añadir o quitar una clase de CSS a un elemento, permitiéndonos cambiar su apariencia de forma sencilla.</p>
+        <p>Una forma muy poderosa de cambiar la apariencia de un elemento es añadirle o quitarle una clase de CSS. Piensa en <code>.classList.toggle()</code> como un interruptor de luz: si la clase está, la quita; si no está, la añade.</p>
+        <p><strong>Explicación del código:</strong></p>
+        <ul>
+            <li><code>caja.classList.toggle('resaltado')</code>: La primera vez que se ejecute, añadirá la clase <code>resaltado</code> a la caja, aplicando los estilos definidos en el CSS. La segunda vez, la quitará, y así sucesivamente.</li>
+        </ul>
+
         <pre><code>const caja = document.getElementById('caja-toggle');
 caja.classList.toggle('resaltado');</code></pre>
         <div id="caja-toggle">Haz clic en el botón para resaltar o quitar el resaltado de esta caja.</div>
@@ -108,7 +128,13 @@ caja.classList.toggle('resaltado');</code></pre>
         <hr>
 
         <h2>Ejercicio 6: Leer la Entrada (Input) de un Usuario</h2>
-        <p>Podemos leer el valor de un campo de texto con <code>.value</code> y usarlo en nuestro script.</p>
+        <p>Para hacer páginas interactivas, necesitamos obtener información del usuario. Con los campos de formulario como <code>&lt;input&gt;</code>, podemos leer lo que el usuario escribe usando la propiedad <code>.value</code>.</p>
+        <p><strong>Explicación del código:</strong></p>
+        <ul>
+            <li><code>input.value</code>: Esto nos da el texto exacto que está escrito dentro del campo de texto en el momento en que se ejecuta el código.</li>
+            <li>En el script, tomamos ese valor, lo guardamos en una variable llamada <code>nombre</code> y lo usamos para construir un saludo personalizado.</li>
+        </ul>
+
         <pre><code>const input = document.getElementById('input-usuario');
 const salida = document.getElementById('salida-input');
 salida.textContent = 'Hola, ' + input.value;</code></pre>
